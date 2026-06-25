@@ -55,6 +55,25 @@ const skillGroups = [
   },
 ];
 
+const teachingRoles = [
+  {
+    subject: "Estrategias de Persistencia (PHM)",
+    university: "UNSAM — Universidad Nacional de San Martín",
+    period: "Agosto 2025 — presente",
+    description:
+      "Tutor en la materia de persistencia políglota. Realizo seguimiento de trabajos prácticos donde los alumnos integran múltiples bases de datos simultáneamente (PostgreSQL, MongoDB, Redis, Neo4j) mediante Docker. En las entregas evalúo comprensión teórica y revisión de código, haciendo preguntas conceptuales y analizando las implementaciones junto a cada grupo.",
+    tags: ["PostgreSQL", "MongoDB", "Redis", "Neo4j", "Docker", "Spring Boot", "Kotlin"],
+  },
+  {
+    subject: "Algoritmos 3 — Interfaces de Usuario",
+    university: "UNSAM — Universidad Nacional de San Martín",
+    period: "Agosto 2025 — presente",
+    description:
+      "Tutor en la materia de interfaces de usuario. Acompaño a los alumnos en el desarrollo de sus trabajos prácticos, donde trabajan con tecnologías frontend modernas. Realizo correcciones, seguimiento y devoluciones sobre diseño de componentes, arquitectura de UI y buenas prácticas de desarrollo.",
+    tags: ["React", "Svelte", "Angular", "HTML", "CSS", "JavaScript", "TypeScript"],
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -80,9 +99,11 @@ export default function Home() {
             <p className="mt-6 text-base leading-8 text-[var(--muted)] sm:text-lg">
               Tengo formación en programación informática y experiencia en
               proyectos full stack donde trabajé con frontend, backend, bases de
-              datos, testing e infraestructura. Me interesa seguir creciendo
-              profesionalmente, aportar en equipos de desarrollo y construir
-              soluciones sólidas con tecnologías modernas.
+              datos, testing e infraestructura. También soy tutor universitario
+              en la UNSAM, donde acompaño a estudiantes en materias de
+              persistencia políglota e interfaces de usuario. Me interesa seguir
+              creciendo profesionalmente, aportar en equipos de desarrollo y
+              construir soluciones sólidas con tecnologías modernas.
             </p>
 
             <div className="mt-6 inline-flex rounded-full border border-[var(--border)] bg-white/[0.03] px-4 py-2 text-sm text-zinc-300">
@@ -113,9 +134,53 @@ export default function Home() {
         >
           <SectionTitle
             eyebrow="Sobre mí"
-            title="Formación técnica y experiencia en desarrollo full stack"
-            description="Soy Técnico Universitario en Programación Informática y participé en proyectos donde trabajé en distintas capas del desarrollo de software, desde interfaces y consumo de APIs hasta lógica de negocio, persistencia de datos y entornos con contenedores. Me interesa insertarme en el mercado IT, seguir aprendiendo en proyectos reales y aportar valor en roles de desarrollo frontend, backend o full stack."
+            title="Formación técnica, desarrollo full stack y docencia universitaria"
+            description="Soy Técnico Universitario en Programación Informática (UNSAM) y participé en proyectos donde trabajé en distintas capas del desarrollo de software, desde interfaces y consumo de APIs hasta lógica de negocio, persistencia de datos y entornos con contenedores. Además soy tutor universitario en materias de persistencia políglota e interfaces de usuario, donde acompaño a estudiantes en el desarrollo de sus proyectos, corrección de código y evaluación conceptual. Me interesa insertarme en el mercado IT, seguir aprendiendo en proyectos reales y aportar valor en roles de desarrollo frontend, backend o full stack."
           />
+        </section>
+
+        <section
+          id="teaching"
+          className="mx-auto max-w-5xl border-t border-white/5 px-6 py-24"
+        >
+          <SectionTitle
+            eyebrow="Experiencia"
+            title="Docencia universitaria en la UNSAM"
+            description="Desde agosto de 2025 soy tutor en dos materias de la Universidad Nacional de San Martín, acompañando a estudiantes en el desarrollo de proyectos con tecnologías modernas."
+          />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {teachingRoles.map((role) => (
+              <article
+                key={role.subject}
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+              >
+                <p className="text-xs uppercase tracking-[0.2em] text-[var(--accent)]">
+                  Tutor
+                </p>
+                <h3 className="mt-2 text-lg font-semibold text-white">
+                  {role.subject}
+                </h3>
+                <p className="mt-1 text-sm text-zinc-400">{role.university}</p>
+                <p className="mt-1 text-xs text-zinc-500">{role.period}</p>
+
+                <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+                  {role.description}
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {role.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-300 transition hover:border-white/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="mx-auto max-w-5xl border-t border-white/5 px-6 py-24">
@@ -154,14 +219,14 @@ export default function Home() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {projects.map((project) => (
               <ProjectCard
-  key={project.slug}
-  slug={project.slug}
-  title={project.title}
-  description={project.description}
-  stack={project.stack}
-  githubUrl={project.githubUrl}
-  liveUrl={project.liveUrl}
-/>
+                key={project.slug}
+                slug={project.slug}
+                title={project.title}
+                description={project.description}
+                stack={project.stack}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+              />
             ))}
           </div>
         </section>

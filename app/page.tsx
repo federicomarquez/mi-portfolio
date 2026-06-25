@@ -4,55 +4,24 @@ import { SectionTitle } from "@/components/section-title";
 import { SkillBadge } from "@/components/skill-badge";
 import { projects } from "@/data/projects";
 
-const skillGroups = [
-  {
-    title: "Lenguajes",
-    items: ["JavaScript", "TypeScript", "Kotlin", "Java", "SQL"],
-  },
-  {
-    title: "Frontend",
-    items: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Material UI",
-      "React Router",
-      "Axios",
-      "HTML",
-      "CSS",
-    ],
-  },
-  {
-    title: "Backend",
-    items: [
-      "Spring Boot",
-      "Spring Web",
-      "Spring Data JPA",
-      "REST APIs",
-      "Spring Security",
-      "JWT",
-    ],
-  },
-  {
-    title: "Bases de datos",
-    items: ["PostgreSQL", "MongoDB", "Redis"],
-  },
-  {
-    title: "Testing y herramientas",
-    items: [
-      "JUnit 5",
-      "Kotest",
-      "MockK",
-      "Testcontainers",
-      "Jacoco",
-      "Docker",
-      "Docker Compose",
-      "Git",
-      "GitHub",
-      "GitHub Actions",
-      "Gradle",
-    ],
-  },
+const skills = [
+  "TypeScript",
+  "JavaScript",
+  "Kotlin",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Spring Boot",
+  "Spring Security",
+  "JWT",
+  "PostgreSQL",
+  "MongoDB",
+  "Redis",
+  "Docker",
+  "GitHub Actions",
+  "JUnit 5",
+  "Kotest",
+  "Testcontainers",
 ];
 
 const teachingRoles = [
@@ -69,7 +38,7 @@ const teachingRoles = [
     university: "UNSAM — Universidad Nacional de San Martín",
     period: "Agosto 2025 — presente",
     description:
-      "Tutor en la materia de interfaces de usuario. Acompaño a los alumnos en el desarrollo de sus trabajos prácticos, donde trabajan con tecnologías frontend modernas. Realizo correcciones, seguimiento y devoluciones sobre diseño de componentes, arquitectura de UI y buenas prácticas de desarrollo.",
+      "Tutor en la materia de interfaces de usuario. Acompaño a los alumnos en el desarrollo de sus trabajos prácticos con tecnologías frontend modernas. Realizo correcciones, seguimiento y devoluciones sobre diseño de componentes, arquitectura de UI y buenas prácticas de desarrollo.",
     tags: ["React", "Svelte", "Angular", "HTML", "CSS", "JavaScript", "TypeScript"],
   },
 ];
@@ -93,22 +62,16 @@ export default function Home() {
             </h1>
 
             <p className="mt-4 text-lg font-medium text-zinc-200 sm:text-xl">
-              Desarrollador de Software Junior
+              Desarrollador de Software
             </p>
 
             <p className="mt-6 text-base leading-8 text-[var(--muted)] sm:text-lg">
-              Tengo formación en programación informática y experiencia en
-              proyectos full stack donde trabajé con frontend, backend, bases de
-              datos, testing e infraestructura. También soy tutor universitario
-              en la UNSAM, donde acompaño a estudiantes en materias de
-              persistencia políglota e interfaces de usuario. Me interesa seguir
-              creciendo profesionalmente, aportar en equipos de desarrollo y
-              construir soluciones sólidas con tecnologías modernas.
+              Trabajo en desarrollo full stack con foco en backend, bases de
+              datos y testing. También soy tutor universitario en la UNSAM, donde
+              acompaño proyectos de persistencia políglota e interfaces de
+              usuario. Me interesa construir software bien hecho y seguir
+              creciendo en equipos con cultura técnica sólida.
             </p>
-
-            <div className="mt-6 inline-flex rounded-full border border-[var(--border)] bg-white/[0.03] px-4 py-2 text-sm text-zinc-300">
-              Disponible para oportunidades junior, trainee o primer empleo IT
-            </div>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
@@ -135,7 +98,7 @@ export default function Home() {
           <SectionTitle
             eyebrow="Sobre mí"
             title="Formación técnica, desarrollo full stack y docencia universitaria"
-            description="Soy Técnico Universitario en Programación Informática (UNSAM) y participé en proyectos donde trabajé en distintas capas del desarrollo de software, desde interfaces y consumo de APIs hasta lógica de negocio, persistencia de datos y entornos con contenedores. Además soy tutor universitario en materias de persistencia políglota e interfaces de usuario, donde acompaño a estudiantes en el desarrollo de sus proyectos, corrección de código y evaluación conceptual. Me interesa insertarme en el mercado IT, seguir aprendiendo en proyectos reales y aportar valor en roles de desarrollo frontend, backend o full stack."
+            description="Soy Técnico Universitario en Programación Informática (UNSAM). Participé en proyectos donde trabajé en distintas capas del stack — interfaces, APIs, lógica de negocio, persistencia y contenedores. Además soy tutor universitario en materias de persistencia políglota e interfaces de usuario, donde acompaño a estudiantes en el desarrollo de sus proyectos, corrección de código y evaluación conceptual."
           />
         </section>
 
@@ -186,22 +149,12 @@ export default function Home() {
         <section className="mx-auto max-w-5xl border-t border-white/5 px-6 py-24">
           <SectionTitle
             eyebrow="Tecnologías"
-            title="Herramientas y tecnologías con las que trabajé"
-            description="Estas son algunas de las tecnologías con las que tengo experiencia a través de proyectos académicos y prácticos."
+            title="Herramientas con las que trabajo"
           />
 
-          <div className="mt-12 space-y-8">
-            {skillGroups.map((group) => (
-              <div key={group.title}>
-                <h3 className="mb-4 text-lg font-semibold text-white">
-                  {group.title}
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {group.items.map((item) => (
-                    <SkillBadge key={item} label={item} />
-                  ))}
-                </div>
-              </div>
+          <div className="mt-10 flex flex-wrap gap-3">
+            {skills.map((skill) => (
+              <SkillBadge key={skill} label={skill} />
             ))}
           </div>
         </section>
@@ -237,8 +190,8 @@ export default function Home() {
         >
           <SectionTitle
             eyebrow="Aprendizaje"
-            title="Sigo ampliando mi perfil para insertarme en el mercado IT"
-            description="Actualmente sigo fortaleciendo mis bases en TypeScript, Next.js y desarrollo de interfaces modernas, mientras consolido conocimientos en backend, testing, bases de datos y buenas prácticas de desarrollo. Me enfoco en aprender construyendo proyectos reales y en desarrollar un perfil versátil para distintos roles dentro del desarrollo de software."
+            title="Siempre construyendo algo nuevo"
+            description="Sigo profundizando en TypeScript, Next.js y arquitectura de software. Me interesa entender bien los sistemas que construyo — no solo que funcionen, sino por qué funcionan."
           />
         </section>
 
@@ -248,8 +201,8 @@ export default function Home() {
         >
           <SectionTitle
             eyebrow="Contacto"
-            title="Estoy buscando mi primera oportunidad en tecnología"
-            description="Estoy abierto a oportunidades junior, trainee o de primer empleo en desarrollo de software. Me interesa sumarme a equipos donde pueda aprender, aportar y seguir creciendo profesionalmente."
+            title="Hablemos"
+            description="Estoy disponible para nuevas oportunidades en desarrollo de software. Si tenés un proyecto interesante o querés charlar, escribime."
           />
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
